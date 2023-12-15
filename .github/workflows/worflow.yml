@@ -32,17 +32,20 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: execute py script # run main.py
-        run:  python3 main.py ${{ github.event.inputs.type}} ${{ github.event.inputs.area}} ${{ github.event.inputs.user}} 
-
-      - name: commit changed file
+      
+      - name: Create and pull branch
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           git branch add-new-user
           git switch add-new-user
           git pull origin add-new-user
+
+      - name: execute py script # run main.py
+        run:  python3 main.py ${{ github.event.inputs.type}} ${{ github.event.inputs.area}} ${{ github.event.inputs.user}} 
+
+      - name: commit changed file
+        run: |
           git add .
           git commit -m "DAT-${{ github.event.inputs.key}} - Add user ${{ github.event.inputs.user}} - GitHub Actions"
           git push --set-upstream origin add-new-user
