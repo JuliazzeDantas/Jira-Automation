@@ -1,11 +1,11 @@
-name: Remove User
+name: Add User
  
 on:
   workflow_dispatch:
     inputs:
       key:
         description: 'Key card'
-        reuired: true
+        required: true
       type:
         description: 'Insert or Delete'
         required: true
@@ -34,14 +34,18 @@ jobs:
           pip install -r requirements.txt
 
       - name: execute py script # run main.py
-        run:  python3 remove_script.py ${{ github.event.inputs.key}} ${{ github.event.inputs.type}} ${{ github.event.inputs.area}} ${{ github.event.inputs.user}} 
+        run:  python3 main.py ${{ github.event.inputs.type}} ${{ github.event.inputs.area}} ${{ github.event.inputs.user}} 
 
       - name: commit changed file
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
+          git branch add-new-user
+          git switch add-new-user
           git add .
-          git commit -m "DAT-${{ github.event.inputs.key}} - Atualização automática pelo GitHub Actions Para Inserção de Usuários"
+          git commit -m "DAT-${{ github.event.inputs.key}} - Add user ${{ github.event.inputs.user}} - GitHub Actions"
           git push
+          git switch main
+          git branch -d add-new-user
       
 

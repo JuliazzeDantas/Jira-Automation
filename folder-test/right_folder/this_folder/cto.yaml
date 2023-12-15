@@ -1,5 +1,7 @@
 Example: XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 Example: XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+spec:
+  values:
     users:
       - ferramenta: yyyy
       - ferramenta: yyyy
@@ -31,7 +33,7 @@ Example: XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
       - ferramenta: yyyy
       - ferramenta: yyyy
       - ferramenta: yyyy
-      - ferramenta: 04diiguyi
     oauth:
 Example: XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 Example: XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
