@@ -37,8 +37,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git branch add-new-user
-          git switch add-new-user
+          git checkout -b add-new-user
 
       - name: Execute py script # run main.py
         run:  python3 main.py ${{ github.event.inputs.type}} ${{ github.event.inputs.area}} ${{ github.event.inputs.user}} 
@@ -48,7 +47,7 @@ jobs:
           git add .
           git commit -m "DAT-${{ github.event.inputs.key}} - Add user ${{ github.event.inputs.user}} - GitHub Actions"
           git push --set-upstream origin add-new-user
-          git branch master
+          git checkout master
           git branch -d add-new-user
       
 
