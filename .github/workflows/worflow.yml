@@ -39,7 +39,6 @@ jobs:
           git config --global user.email 'github-actions@github.com'
           git branch add-new-user
           git switch add-new-user
-          git pull origin add-new-user
 
       - name: execute py script # run main.py
         run:  python3 main.py ${{ github.event.inputs.type}} ${{ github.event.inputs.area}} ${{ github.event.inputs.user}} 
