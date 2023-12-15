@@ -45,7 +45,7 @@ jobs:
           git add .
           git commit -m "DAT-${{ github.event.inputs.key}} - Add user ${{ github.event.inputs.user}} - GitHub Actions"
           git push --set-upstream origin add-new-user
-          git switch main
+          git switch master
           git branch -d add-new-user
       
 
