@@ -40,9 +40,9 @@ jobs:
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git pull
           git branch add-new-user
           git switch add-new-user
+          git pull origin add-new-user
           git add .
           git commit -m "DAT-${{ github.event.inputs.key}} - Add user ${{ github.event.inputs.user}} - GitHub Actions"
           git push --set-upstream origin add-new-user
