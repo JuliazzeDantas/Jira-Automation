@@ -54,7 +54,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Add user ${{ github.event.inputs.user }}"
           title: "DAT-${{ github.event.inputs.key}} - Add user ${{ github.event.inputs.user}}"
-          body: master
+          body: "This Pull Request adds a new user."
+          branch: master
           delete-branch: true
       
 
