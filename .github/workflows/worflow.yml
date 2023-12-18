@@ -35,8 +35,8 @@ jobs:
       
       - name: Create and pull branch
         run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
+          git config --global user.name 'JuliazzeDantas'
+          git config --global user.email 'juliassedantasprogramados@github.com'
           git checkout -b add-new-user-${{ github.event.inputs.user}}
 
       - name: Execute py script # run main.py
