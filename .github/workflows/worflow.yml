@@ -37,16 +37,9 @@ jobs:
         run: |
           git config --global user.name 'Juliasse'
           git config --global user.email 'vinicius.dantas@raizen.com'
-          git checkout -b add-new-user-${{ github.event.inputs.user}}
 
       - name: Execute py script # run main.py
         run:  python3 main.py ${{ github.event.inputs.type}} ${{ github.event.inputs.area}} ${{ github.event.inputs.user}} 
-
-      - name: Commit changed file
-        run: |
-          git add .
-          git commit -m "DAT-${{ github.event.inputs.key}} - Add user ${{ github.event.inputs.user}} - GitHub Actions"
-          git push --set-upstream origin add-new-user-${{ github.event.inputs.user}}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
@@ -55,7 +48,8 @@ jobs:
           commit-message: "Add user ${{ github.event.inputs.user }}"
           title: "DAT-${{ github.event.inputs.key}} - Add user ${{ github.event.inputs.user}}"
           body: "This Pull Request adds a new user."
-          branch: master
+          branch: add-new-user-${{ github.event.inputs.user}}
+          base: master
           delete-branch: true
       
 
