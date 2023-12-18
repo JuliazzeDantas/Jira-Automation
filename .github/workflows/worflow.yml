@@ -46,9 +46,9 @@ jobs:
         run: |
           git add .
           git commit -m "DAT-${{ github.event.inputs.key}} - Add user ${{ github.event.inputs.user}} - GitHub Actions"
-          git push --set-upstream origin add-new-user
+          git push --set-upstream origin add-new-user-${{ github.event.inputs.user}}
           git checkout master
-          git branch -d add-new-user
+          git branch -d add-new-user-${{ github.event.inputs.user}}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
