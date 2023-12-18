@@ -4,7 +4,7 @@ import yaml
 def main(type, area, user):
     path = f'folder-test/right_folder/this_folder/{area}.yaml'
 
-    if type == 'insertion':
+    if type == 'insert':
         with open(path, 'r') as archive:
             dict_data = yaml.safe_load(archive)
             
