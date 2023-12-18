@@ -35,8 +35,8 @@ jobs:
       
       - name: Create and pull branch
         run: |
-          git config --global user.name 'JuliazzeDantas'
-          git config --global user.email 'juliassedantasprogramados@github.com'
+          git config --global user.name 'Juliasse'
+          git config --global user.email 'vinicius.dantas@raizen.com'
           git checkout -b add-new-user-${{ github.event.inputs.user}}
 
       - name: Execute py script # run main.py
@@ -56,7 +56,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Add user ${{ github.event.inputs.user }}"
           title: "DAT-${{ github.event.inputs.key}} - Add user ${{ github.event.inputs.user}}"
-          body: "This Pul Request adds a new user."
+          body: "This Pull Request adds a new user."
           branch: add-new-user
       
 
